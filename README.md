@@ -19,6 +19,30 @@ Codaily is a Spring Boot MVP that collects GitHub activity, generates a retrospe
 
 Default mode is demo mode, so the app works without GitHub OAuth or any LLM provider.
 
+## Hot reload
+
+For development, use the `dev` profile and keep a continuous compile process running.
+
+Terminal 1:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE='dev'
+.\gradlew.bat bootRun
+```
+
+Terminal 2:
+
+```powershell
+.\gradlew.bat classes --continuous
+```
+
+What this gives you:
+
+- Java changes: auto recompile in terminal 2, then Spring Boot DevTools restarts the app
+- Thymeleaf / static resource changes: reflected faster because resources are served from source and caches are disabled in `application-dev.yml`
+
+If you are already running `bootRun`, stop it with `Ctrl + C` and restart with the `dev` profile once.
+
 ## Supported AI providers
 
 - `gemini`
