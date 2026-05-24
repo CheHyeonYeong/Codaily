@@ -1,0 +1,132 @@
+:root {
+    --bg: #efe7db;
+    --panel: #fffdf8;
+    --ink: #1f1c16;
+    --muted: #6d655b;
+    --line: #d9d0c2;
+    --accent: #155e75;
+    --accent-soft: #dff2f8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 360px;
+    font-family: "Segoe UI", "Noto Sans", sans-serif;
+    color: var(--ink);
+    background: radial-gradient(circle at top right, #f9dfca 0, transparent 28%), var(--bg);
+}
+
+.shell {
+    padding: 16px;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 16px 36px rgba(31, 28, 22, 0.1);
+}
+
+.eyebrow {
+    margin: 0 0 6px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+h1 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.copy {
+    margin: 0 0 16px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+code {
+    padding: 1px 5px;
+    border-radius: 6px;
+    background: #f4efe6;
+    font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 12px;
+}
+
+.field {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.field span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 11px 12px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--accent-soft);
+    border-color: var(--accent);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.button {
+    flex: 1;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    padding: 11px 14px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button.primary {
+    background: var(--ink);
+    color: #fff;
+}
+
+.button.subtle {
+    border-color: var(--line);
+    color: var(--muted);
+}
+
+.status {
+    min-height: 18px;
+    margin: 12px 0 0;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+}

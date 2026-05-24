@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: codaily
+  datasource:
+    url: jdbc:h2:mem:codaily;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  cache:
+    type: simple
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when_authorized
+  health:
+    redis:
+      enabled: false
+
+codaily:
+  app:
+    public-base-url: ${PUBLIC_BASE_URL:http://localhost:8080}
+  github:
+    demo: ${GITHUB_DEMO:true}
+    api-base-url: ${GITHUB_API_BASE_URL:https://api.github.com}
+    personal-access-token: ${GITHUB_PERSONAL_ACCESS_TOKEN:}
+  ai:
+    enabled: ${AI_ENABLED:false}
+    provider: ${AI_PROVIDER:template}
+    model: ${AI_MODEL:gemini-3.5-flash}
+    gemini-api-base-url: ${GEMINI_API_BASE_URL:https://generativelanguage.googleapis.com}
+    open-ai-api-base-url: ${OPENAI_API_BASE_URL:https://api.openai.com}
+    anthropic-api-base-url: ${ANTHROPIC_API_BASE_URL:https://api.anthropic.com}
+    gemini-api-key: ${GEMINI_API_KEY:}
+    open-ai-api-key: ${OPENAI_API_KEY:}
+    anthropic-api-key: ${ANTHROPIC_API_KEY:}
+    anthropic-version: ${ANTHROPIC_VERSION:2023-06-01}

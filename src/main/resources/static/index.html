@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codaily</title>
+    <style>
+        :root {
+            --bg: #f6f3ec;
+            --paper: #fffdf9;
+            --ink: #1d1d1b;
+            --muted: #6b675f;
+            --line: #d8d1c5;
+            --accent: #0f766e;
+            --accent-soft: #dff4ef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, #e7efe8 0, transparent 32%),
+                linear-gradient(180deg, #f7f4ee 0%, #efe8dc 100%);
+        }
+
+        main {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 48px 20px 72px;
+        }
+
+        .hero {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 18px 50px rgba(29, 29, 27, 0.08);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        h1 {
+            margin: 16px 0 10px;
+            font-size: clamp(34px, 5vw, 58px);
+            line-height: 1;
+        }
+
+        p {
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            margin-top: 28px;
+        }
+
+        .card {
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        code {
+            font-family: "Cascadia Code", Consolas, monospace;
+            background: #f3efe6;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            background: #fff;
+            font-weight: 700;
+        }
+
+        .button.primary {
+            background: var(--ink);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section class="hero">
+        <span class="eyebrow">GitHub 회고 MVP</span>
+        <h1>Codaily</h1>
+        <p>GitHub 활동을 모아 회고를 생성하고, 공유 링크와 랭킹 페이지까지 연결하는 Spring Boot 프로젝트다. 기본값은 데모 모드라서 OAuth나 AI 키 없이도 흐름을 바로 확인할 수 있다.</p>
+
+        <div class="actions">
+            <a class="button primary" href="/rankings">랭킹 페이지 보기</a>
+            <a class="button" href="/api/github/repositories/openai/openai/activity">샘플 활동 API</a>
+            <a class="button" href="/api/auth/me">로그인 상태 확인</a>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <strong>1단계 백엔드</strong>
+                <p><code>/api/github</code>, <code>/api/retrospects</code>, <code>/api/rankings</code> 흐름이 준비돼 있다.</p>
+            </div>
+            <div class="card">
+                <strong>OAuth 확장</strong>
+                <p><code>SPRING_PROFILES_ACTIVE=oauth</code> 와 GitHub 클라이언트 정보를 넣으면 OAuth 로그인으로 확장할 수 있다.</p>
+            </div>
+            <div class="card">
+                <strong>AI 교체 포인트</strong>
+                <p>현재는 템플릿 생성기지만, 서비스 인터페이스가 분리돼 있어 실제 GPT/Claude 호출로 바꾸기 쉽다.</p>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

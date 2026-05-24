@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Codaily GitHub Retrospector",
+  "version": "0.1.0",
+  "description": "Generate GitHub retrospectives with your own Gemini API key.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://github.com/*",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_title": "Codaily settings",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codaily Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="shell">
+    <section class="panel">
+        <p class="eyebrow">Codaily</p>
+        <h1>Extension Settings</h1>
+        <p class="copy">Your API key is stored in <code>chrome.storage.local</code> on this browser and sent only when you generate a retrospective.</p>
+
+        <form id="settings-form">
+            <label class="field">
+                <span>Backend URL</span>
+                <input id="backendBaseUrl" name="backendBaseUrl" type="url" placeholder="http://localhost:8080" required>
+            </label>
+
+            <label class="field">
+                <span>AI provider</span>
+                <select id="aiProvider" name="aiProvider">
+                    <option value="gemini">Gemini</option>
+                    <option value="openai">OpenAI (ChatGPT API)</option>
+                    <option value="anthropic">Anthropic (Claude API)</option>
+                </select>
+            </label>
+
+            <label class="field">
+                <span id="apiKeyLabel">API key</span>
+                <input id="apiKey" name="apiKey" type="password" placeholder="AIza...">
+            </label>
+
+            <label class="field">
+                <span>Model</span>
+                <input id="aiModel" name="aiModel" type="text" placeholder="gemini-3.5-flash">
+            </label>
+
+            <label class="field">
+                <span>Default focus</span>
+                <textarea id="focus" name="focus" rows="4" placeholder="Highlight what was learned and the next actions"></textarea>
+            </label>
+
+            <div class="actions">
+                <button type="submit" class="button primary">Save</button>
+                <button type="button" class="button subtle" id="clear-key">Clear key</button>
+            </div>
+        </form>
+
+        <p id="status" class="status" aria-live="polite"></p>
+    </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>
